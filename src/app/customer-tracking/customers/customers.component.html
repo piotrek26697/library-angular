@@ -1,0 +1,8 @@
+<div *ngFor="let customer of customers">
+    <ul class="list">
+        <li appHighlight class="list-element" routerLink="/animals/{{animal.id}}">
+            <span class="text-element">{{customer.name}} {{customer.lastName}}</span>
+        </li>
+    </ul>
+</div>
+
