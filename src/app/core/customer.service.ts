@@ -8,7 +8,7 @@ import { map, catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class CustomerService {
-  private apiURL: string = "localhost:8080/library/api/customers";
+  private apiURL: string = "http://localhost:8080/library/api/customers";
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
@@ -28,12 +28,14 @@ export class CustomerService {
       .pipe(map(a => a.map(a => new Customer(a))),
         catchError(this.handleError<Customer[]>("getCustomers", new Array())));
   }
-  getCustomer(id: number): Observable<Customer> {
-    return this.httpClient.get<CustomerAttributes>(this.apiURL + `/${id}`)
+  getCustomer(url:string): Observable<Customer> {
+    return this.httpClient.get<CustomerAttributes>(url)
       .pipe(map(a => new Customer(a)),
-        catchError(this.handleError<Customer>("getAnimal", null)));
+        catchError(this.handleError<Customer>("getCustomer", null)));
   }
   postCustomer(customer: Customer): Observable<any> {
-    return this.httpClient.post(this.apiURL, customer, this.httpOptions)
+    return this.httpClient.post(this.apiURL, customer, this.httpOptions).pipe(
+      catchError(this.handleError<any>("postCustomer", null))
+    );
   }
 }
