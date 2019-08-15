@@ -1,6 +1,7 @@
 <div *ngFor="let customer of customers">
     <ul class="list">
-        <li appHighlight class="list-element" routerLink="/animals/{{animal.id}}">
+        <li class="list-element" routerLink="/customers/{{customer.id}}" (click)="sendLink(customer)">
+            
             <span class="text-element">{{customer.name}} {{customer.lastName}}</span>
         </li>
     </ul>

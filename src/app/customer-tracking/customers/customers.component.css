@@ -16,9 +16,9 @@
     border-radius: 10px;
 }
 
-/* .list-element:hover {
+.list-element:hover {
     background-color: darkgrey;
-} */
+}
 
 .text-element {
     word-wrap: break-word;
