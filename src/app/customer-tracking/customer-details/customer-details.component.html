@@ -1,0 +1,11 @@
+<div class="main-block" *ngIf="customer">
+    <h2 class="header">Details of {{customer.name}} {{customer.lastName | uppercase}}</h2>
+    <div class="">
+        <span class="">Email: {{customer.email}}</span><br>
+    </div>
+    <div *ngFor="let link of customer.links">
+        <ul>
+            <li>{{link.rel}}</li>
+        </ul>
+    </div>
+</div>
