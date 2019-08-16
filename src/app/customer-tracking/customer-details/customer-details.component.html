@@ -3,9 +3,16 @@
     <div class="">
         <span class="">Email: {{customer.email}}</span><br>
     </div>
-    <div *ngFor="let link of customer.links">
-        <ul>
-            <li>{{link.rel}}</li>
-        </ul>
+    <div *ngFor="let bookHire of bookHires, let i=index">
+        <ol>
+            <li>
+                <span>{{bookHire.rentDate}}</span>
+                <span>{{bookHire.returnDate}}</span>
+                <span *ngIf="books[i]" >{{books[i].title}}</span>
+            </li>
+        </ol>
     </div>
 </div>
+
+
+<!-- {{bookHire.id}} {{bookHire.rentDate}} {{bookHire.returnDate}} {{books[0].title}}  -->

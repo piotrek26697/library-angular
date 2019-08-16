@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { CustomerTrackingModule } from './customer-tracking/customer-tracking.module';
+import { BookTrackingModule } from './book-tracking/book-tracking.module';
+import { RentalTrackingModule } from './rental-tracking/rental-tracking.module';
 
 @NgModule({
   declarations: [
@@ -13,6 +15,8 @@ import { CustomerTrackingModule } from './customer-tracking/customer-tracking.mo
   imports: [
     BrowserModule,
     CustomerTrackingModule,
+    BookTrackingModule,
+    RentalTrackingModule,
     AppRoutingModule,
     CoreModule
   ],
